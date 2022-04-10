@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Attendance System</title>
+</head>
+
+<body>
+
+<div stype="text-align:center">
+    <h1>History</h1>
+</div>
+
+<div stype="text-align:center">
+    <table>
+        <thead>
+        <tr>
+            <th> Type </th>
+            <th> Time </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${records.empty}">
+            <td colspan="2"> No Records Available </td>
+        </tr>
+        <tr th:each="attendance : ${records}">
+            <td><span th:text="(${attendance.type} == 0 ? 'in': 'out')"> Type </span></td>
+            <td><span th:text="${attendance.date}"> Time </span></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+
+</html>

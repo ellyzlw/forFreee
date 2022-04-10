@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Attendance System</title>
+</head>
+
+<body>
+
+<div stype="text-align:center">
+    <h1 th:text="|Welcome: ${name}|">Welcome</h1>
+</div>
+
+<div stype="text-align:center">
+    <button type="button" th:onclick="|window.location.href='/check/in'|">Check in</button>
+    <button type="button" th:onclick="|window.location.href='/check/out'|">Check out</button>
+    <button type="button" th:onclick="|window.location.href='/check/history'|">History</button> <br/>
+    <button type="button" th:onclick="|window.location.href='/logout'|">Log out</button>
+</div>
+
+<script th:if="${checkType != null}" th:inline="javascript">
+    window.onload = function() {
+        alert("You have checked " + ([[${checkType}]] == 0 ? "in" : "out") + " successfully!");
+    }
+</script>
+
+</body>
+
+</html>
